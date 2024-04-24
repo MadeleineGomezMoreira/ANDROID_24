@@ -25,6 +25,12 @@ class LibraryRepository @Inject constructor(
         }.flowOn(dispatcher)
     }
 
+    fun getAuthorWithBooks(id : Int): Flow<Author> {
+        return flow {
+            emit(dao.getAuthorWithBooks(id).toDomainAuthor())
+        }.flowOn(dispatcher)
+    }
+
     fun getAuthors(): Flow<List<Author>> {
         return flow {
             emit(dao.getAuthors().map { it.toDomainAuthor() })

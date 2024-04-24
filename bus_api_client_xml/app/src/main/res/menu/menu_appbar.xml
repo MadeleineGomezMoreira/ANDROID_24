@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/driverDetailFragment"
+        android:title="@string/my_profile"
+        android:contentDescription="@string/all_drivers_fragment"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/driversListFragment"
+        android:contentDescription="@string/driver_detail_fragment"
+        app:showAsAction="collapseActionView"
+        android:title="@string/all_drivers" />
+
+</menu>

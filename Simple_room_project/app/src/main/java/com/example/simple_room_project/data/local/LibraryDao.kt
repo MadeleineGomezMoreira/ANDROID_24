@@ -1,5 +1,6 @@
 package com.example.simple_room_project.data.local
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -8,11 +9,16 @@ import com.example.simple_room_project.data.model.AuthorEntity
 import com.example.simple_room_project.data.model.AuthorWithBooks
 import com.example.simple_room_project.data.model.BookEntity
 
+@Dao
 interface LibraryDao {
 
     @Transaction
     @Query("SELECT * FROM authors")
     suspend fun getAuthorWithBooks(): List<AuthorWithBooks>
+
+    @Transaction
+    @Query("SELECT * FROM authors where id = :id")
+    suspend fun getAuthorWithBooks(id: Int): AuthorWithBooks
 
     @Query("SELECT * FROM authors")
     suspend fun getAuthors(): List<AuthorEntity>

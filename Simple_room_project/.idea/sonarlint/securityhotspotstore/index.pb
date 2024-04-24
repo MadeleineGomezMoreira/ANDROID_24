@@ -1,6 +1,4 @@
 
-q
-Aapp/src/main/java/com/example/simple_room_project/MainActivity.kt,9\4\94ebc85369ba971079cde8e7f201efd202031aa3
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 x
@@ -23,8 +21,6 @@ Japp/src/main/java/com/example/simple_room_project/data/model/BookEntity.kt,e\a
 Kapp/src/main/java/com/example/simple_room_project/data/local/AppDatabase.kt,9\1\91fcd0dd230fc91f26e13aaa524f34f99997ea3e
 {
 Kapp/src/main/java/com/example/simple_room_project/data/model/DataMappers.kt,0\e\0e62941bf75971f550998cc726f36d675a5157f9
-y
-Iapp/src/main/java/com/example/simple_room_project/data/local/AuthorDao.kt,f\b\fb0d51fa8ae4af71213c41ce44029815a61fcf41
 v
 Fapp/src/main/java/com/example/simple_room_project/di/DatabaseModule.kt,5\6\564fdf41f553e50ad089b226fdf72a59bf3ad35b
 z
@@ -35,3 +31,11 @@ Japp/src/main/java/com/example/simple_room_project/data/model/Converters.kt,6\8
 Xapp/src/main/java/com/example/simple_room_project/data/repositories/LibraryRepository.kt,5\7\5751df7a7ef2980f3e35a5cec14208594d254201
 ˆ
 Xapp/src/main/java/com/example/simple_room_project/domain/usecases/GetAuthorsWithBooks.kt,8\8\88bff5631ee480fe589d6337c0937a1fc272b634
+
+Oapp/src/main/java/com/example/simple_room_project/domain/usecases/GetAuthors.kt,c\6\c652748a96b5f0b127c4f7237258f4414a295703
+‡
+Wapp/src/main/java/com/example/simple_room_project/domain/usecases/GetAuthorWithBooks.kt,e\e\eef828a719e76f33a838235cc2af98e0a7b9024f
+l
+<app/src/main/java/com/example/simple_room_project/MainApp.kt,c\6\c6f22f9b44689d3fa9f235c90b4598412dfc7c5c
+z
+Japp/src/main/java/com/example/simple_room_project/ui/AuthorListActivity.kt,1\2\128062c6f6f8dfd9a2db9bf873a231e2f6f03991

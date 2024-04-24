@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/driverDetailFragment"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/my_profile"
+        android:contentDescription="@string/driver_detail_fragment"
+         />
+
+    <item
+        android:id="@+id/driversListFragment"
+        android:title="@string/all_drivers"
+        android:contentDescription="@string/all_drivers_fragment"
+         />
+
+</menu>
