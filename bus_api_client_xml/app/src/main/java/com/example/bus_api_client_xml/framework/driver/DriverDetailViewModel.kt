@@ -38,6 +38,7 @@ class DriverDetailViewModel @Inject constructor(
                     when (result) {
                         is NetworkResult.Error -> {
                             _state.value = _state.value.copy(
+                                loading = false,
                                 error = result.message
                             )
                         }
@@ -48,6 +49,7 @@ class DriverDetailViewModel @Inject constructor(
                         }
                         is NetworkResult.Success -> {
                             _state.value = _state.value.copy(
+                                loading = false,
                                 busDriver = result.data ?: DriverDetailContract.DriverDetailState().busDriver,
                             )
                         }

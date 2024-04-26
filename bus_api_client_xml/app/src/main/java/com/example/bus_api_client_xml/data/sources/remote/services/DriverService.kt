@@ -13,4 +13,7 @@ interface DriverService {
 
     @GET(Constants.DRIVER_BY_ID_PATH)
     suspend fun getById(@Path(Constants.ID_PARAM) id: Int): Response<DriverResponse>
+
+    @GET(Constants.GET_DRIVER_ID_BY_USERNAME_PATH)
+    suspend fun getIdByUsername(@Path(Constants.USERNAME_PARAM) username: String): Response<Int>
 }

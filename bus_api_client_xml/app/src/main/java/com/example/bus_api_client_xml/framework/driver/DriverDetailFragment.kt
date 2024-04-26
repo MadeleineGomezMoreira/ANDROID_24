@@ -36,14 +36,18 @@ class DriverDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding) {
-            val driverId = args.Id.toInt()
-            viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.GetDriver(driverId))
+        val driverId = args.Id.toInt()
+        viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.GetDriver(driverId))
 
-            viewLifecycleOwner.lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.state.collect { value ->
-                        driver = value.busDriver
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect {
+                    if (it.loading) {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+                    if (!it.loading) {
+                        binding.progressBar.visibility = View.GONE
+                        driver = it.busDriver
                         setScreenDriverData()
                     }
                 }

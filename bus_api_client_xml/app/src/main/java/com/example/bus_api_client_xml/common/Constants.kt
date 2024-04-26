@@ -19,23 +19,26 @@ object Constants {
     const val BLANK_SPACE = " "
 
     //URLS
-    const val BASE_URL = "http://10.0.2.2:8085/Bus_driving_server_payara-1.0-SNAPSHOT/api"
+    const val BASE_URL = "http://10.0.2.2:8085/Bus_driving_server_payara-1.0-SNAPSHOT/api/"
 
     //REQUEST PATHS
-    const val LOGIN_PATH = "/login"
-    const val REGISTER_PATH = "/register"
+    const val LOGIN_PATH = "login"
+    const val REGISTER_PATH = "register"
 
-    const val DRIVERS_PATH = "/drivers"
-    const val LINES_PATH = "/lines"
-    const val STOPS_PATH = "/stops"
+    const val DRIVERS_PATH = "drivers"
+    const val LINES_PATH = "lines"
+    const val STOPS_PATH = "stops"
 
-    const val DRIVER_BY_ID_PATH = "/drivers/{id}"
-    const val LINE_BY_ID_PATH = "/lines/{id}"
-    const val STOP_BY_ID_PATH = "/stops/{id}"
+    const val DRIVER_BY_ID_PATH = "drivers/{id}"
+    const val LINE_BY_ID_PATH = "lines/{id}"
+    const val STOP_BY_ID_PATH = "stops/{id}"
 
-    const val LINES_IN_A_STOP_PATH = "/lines/stop/{id}"
-    const val STOPS_IN_A_LINE_PATH = "/stops/line/{id}"
+    const val LINES_IN_A_STOP_PATH = "lines/stop/{id}"
+    const val STOPS_IN_A_LINE_PATH = "stops/line/{id}"
+
+    const val GET_DRIVER_ID_BY_USERNAME_PATH = "drivers/username/{username}"
 
     //REQUEST PARAMETERS
     const val ID_PARAM = "id"
+    const val USERNAME_PARAM = "username"
 }

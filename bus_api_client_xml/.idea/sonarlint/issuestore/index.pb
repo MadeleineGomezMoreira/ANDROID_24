@@ -115,3 +115,5 @@ Xapp/src/main/java/com/example/bus_api_client_xml/domain/usecases/auth/RegisterU
 Papp/src/main/java/com/example/bus_api_client_xml/data/model/di/MapperProvider.kt,f\f\ffac41e023f69dabe86ad783a145cbccbc07dea6
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+Ž
+^app/src/main/java/com/example/bus_api_client_xml/domain/usecases/drivers/GetDriverIdUseCase.kt,3\3\33c638e5e0aa299716193b8882d62cd249f3e374

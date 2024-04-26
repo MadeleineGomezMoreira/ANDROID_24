@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/leftGuideline"
             android:layout_width="wrap_content"
@@ -106,6 +117,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentUserNameLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -121,6 +133,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentPasswordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -160,6 +173,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentUserNameRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -175,6 +189,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline5">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentPasswordRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -191,6 +206,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline6">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -206,6 +222,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline7">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -221,6 +238,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline8">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldContentEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

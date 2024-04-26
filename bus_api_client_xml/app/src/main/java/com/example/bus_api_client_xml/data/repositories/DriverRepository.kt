@@ -29,4 +29,12 @@ class DriverRepository @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
+    fun getDriverIdByUsername(username: String): Flow<NetworkResult<Int>> {
+        return flow {
+            emit(NetworkResult.Loading())
+            val result = driverRemoteDataSource.getDriverIdByUsername(username)
+            emit(result)
+        }.flowOn(Dispatchers.IO)
+    }
+
 }

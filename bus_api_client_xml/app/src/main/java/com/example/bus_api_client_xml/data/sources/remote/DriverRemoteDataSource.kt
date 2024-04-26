@@ -46,4 +46,19 @@ class DriverRemoteDataSource @Inject constructor(
             return NetworkResult.Error(e.message ?: e.toString())
         }
     }
+
+    suspend fun getDriverIdByUsername(username: String): NetworkResult<Int> {
+        return try {
+            val response = driverService.getIdByUsername(username)
+            if (response.isSuccessful) {
+                response.body()?.let { id ->
+                    NetworkResult.Success(id)
+                } ?: NetworkResult.Error(Constants.NO_DRIVER_FOUND_ERROR)
+            } else {
+                NetworkResult.Error(response.message())
+            }
+        } catch (e: Exception) {
+            return NetworkResult.Error(e.message ?: e.toString())
+        }
+    }
 }
