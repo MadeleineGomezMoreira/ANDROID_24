@@ -125,3 +125,7 @@ Napp/src/main/java/com/example/bus_api_client_xml/domain/model/LocationPoint.kt
 Napp/src/main/java/com/example/bus_api_client_xml/framework/stop/LineAdapter.kt,5\8\58d93fa1de9848e40ad7a9648b3c09a0fd61362c
 ƒ
 Sapp/src/main/java/com/example/bus_api_client_xml/framework/drivers/DriverAdapter.kt,4\7\47d4c449ab4134c4ab901deac9bc15fca7053f3c
+=
+app/README.md,4\c\4c5b4e01137160a7f4b20b65b547907a29541367
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bus_api_client_xml.R
 import com.example.bus_api_client_xml.databinding.ItemViewBinding
-import com.example.bus_api_client_xml.databinding.LineViewBinding
 import com.example.bus_api_client_xml.domain.model.BusDriver
-import com.example.bus_api_client_xml.domain.model.BusLine
 
 class DriverAdapter(val context: Context, val actions: LineActions) :
     ListAdapter<BusDriver, DriverAdapter.ItemViewHolder>(DiffCallback()) {

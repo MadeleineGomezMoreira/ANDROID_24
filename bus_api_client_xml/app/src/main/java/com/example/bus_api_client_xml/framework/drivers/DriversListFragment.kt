@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bus_api_client_xml.common.Constants
 import com.example.bus_api_client_xml.databinding.FragmentDriversListBinding
-import com.example.bus_api_client_xml.framework.line.BusLineDetailContract
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -83,11 +82,7 @@ class DriversListFragment : Fragment() {
                         }
                         if (it.error != null) {
                             if(it.error == Constants.FORBIDDEN_STRING) {
-                                Snackbar.make(
-                                    requireView(),
-                                    Constants.PERMISSION_DENIED_ERROR,
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
+                                showErrorMessage(Constants.PERMISSION_DENIED_ERROR)
                             } else{
                                 showErrorMessage(it.error)
                             }
@@ -100,6 +95,6 @@ class DriversListFragment : Fragment() {
     }
 
     private fun showErrorMessage(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 }

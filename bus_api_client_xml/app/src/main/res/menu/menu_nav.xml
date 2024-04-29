@@ -11,4 +11,9 @@
         android:contentDescription="@string/all_drivers_fragment"
         android:title="@string/all_drivers" />
 
+    <item
+        android:id="@+id/loginFragment"
+        android:contentDescription="@string/login_fragment"
+        android:title="@string/login" />
+
 </menu>

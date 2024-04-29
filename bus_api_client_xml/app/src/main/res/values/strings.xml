@@ -5,7 +5,8 @@
     <string name="last_name">Last name</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="login">LOGIN</string>
+    <string name="login_caps">LOGIN</string>
+    <string name="login">Login</string>
     <string name="register">REGISTER</string>
     <string name="phone_number">Phone number</string>
     <string name="item_name">item-name</string>
@@ -40,4 +41,5 @@
     <string name="my_profile_slash_driver">MY PROFILE / DRIVER</string>
     <string name="driver_caps">DRIVER</string>
     <string name="bus_driving_app">BUS DRIVING APPLICATION</string>
+    <string name="login_fragment">Fragment in which the user can log in</string>
 </resources>

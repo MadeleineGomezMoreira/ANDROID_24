@@ -44,12 +44,25 @@ class MainActivity : AppCompatActivity() {
             //drawer configuration
             appBarConfiguration = AppBarConfiguration(
                 setOf(
-                    R.id.driverDetailFragment, R.id.driversListFragment
+                    R.id.driverDetailFragment, R.id.driversListFragment, R.id.loginFragment
                 ), drawerLayout
             )
 
             setupActionBarWithNavController(navController, appBarConfiguration)
-            navView.setupWithNavController(navController)
+
+            //navigation in the drawer
+            navView.setNavigationItemSelectedListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.loginFragment -> {
+                        navController.navigate(R.id.loginFragment)
+                        true
+                    }
+                    else -> {
+                        menuItem.onNavDestinationSelected(navController)
+                        true
+                    }
+                }
+            }
 
             //when you click on the appbar where the drawer is it opens
             topAppBar.setNavigationOnClickListener {

@@ -97,11 +97,7 @@ class BusLineDetailFragment : Fragment() {
                         }
                         if (it.error != null) {
                             if(it.error == Constants.FORBIDDEN_STRING) {
-                                Snackbar.make(
-                                    requireView(),
-                                    Constants.PERMISSION_DENIED_ERROR,
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
+                                showErrorMessage(Constants.PERMISSION_DENIED_ERROR)
                             } else{
                                 showErrorMessage(it.error)
                             }

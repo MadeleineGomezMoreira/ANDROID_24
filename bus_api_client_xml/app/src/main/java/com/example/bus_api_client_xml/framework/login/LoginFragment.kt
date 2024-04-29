@@ -45,57 +45,62 @@ class LoginFragment : Fragment() {
         setButtonOnClickListeners()
 
         //state listeners
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.state.collect {
-                    if (it.loading) {
-                        //show loading indicator on screen
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
-                    if (!it.loading) {
-                        //hide loading indicator on screen
-                        binding.progressBar.visibility = View.GONE
-                        if (it.userId != null) {
-                            val id = it.userId
-                            val action =
-                                LoginFragmentDirections.actionLoginFragmentToDriverDetailFragment(
-                                    Id = id.toString()
-                                )
-                            findNavController().navigate(action)
+        setStateListeners()
+    }
+
+    private fun setStateListeners(){
+        with(binding){
+            viewLifecycleOwner.lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.state.collect {
+                        if (it.loading) {
+                            //show loading indicator on screen
+                            progressBar.visibility = View.VISIBLE
                         }
-                    }
-                    if (it.correctAction) {
-                        viewModel.handleEvent(LoginContract.LoginEvent.RetrieveUserId(username))
-                    }
-                    if (it.error != null) {
-                        when (it.error) {
-                            Constants.FORBIDDEN_STRING -> {
-                                showErrorMessage(Constants.ACTIVATION_REQUIRED_ERROR)
-                                clearInputFields()
-                            }
-
-                            Constants.UNAUTHORIZED_STRING -> {
-                                showErrorMessage(Constants.WRONG_LOGIN_INFO_ERROR)
-                            }
-
-                            Constants.CUSTOM_STRING -> {
-                                showErrorMessage(Constants.ACCOUNT_NOT_ACTIVATED_ERROR)
-                            }
-
-                            Constants.CONFLICT_STRING -> {
-                                showErrorMessage(Constants.USERNAME_OR_EMAIL_ALREADY_EXISTS_ERROR)
-                            }
-
-                            else -> {
-                                showErrorMessage(it.error)
+                        if (!it.loading) {
+                            //hide loading indicator on screen
+                            progressBar.visibility = View.GONE
+                            if (it.userId != null) {
+                                val id = it.userId
+                                handleUserIdState(id.toString())
                             }
                         }
-                        viewModel.handleEvent(LoginContract.LoginEvent.ErrorDisplayed)
+                        if (it.correctAction) {
+                            viewModel.handleEvent(LoginContract.LoginEvent.RetrieveUserId(username))
+                        }
+                        if (it.error != null) {
+                            handleErrorState(it.error)
+                        }
                     }
                 }
             }
         }
     }
+
+    private fun handleUserIdState(userId: String?) {
+        userId?.let {
+            val action = LoginFragmentDirections.actionLoginFragmentToDriverDetailFragment(Id = userId)
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun handleErrorState(error: String?) {
+        error?.let {
+            val errorMessage = when (error) {
+                Constants.FORBIDDEN_STRING -> {
+                    clearInputFields()
+                    Constants.ACTIVATION_REQUIRED_ERROR
+                }
+                Constants.UNAUTHORIZED_STRING -> Constants.WRONG_LOGIN_INFO_ERROR
+                Constants.CUSTOM_STRING -> Constants.ACCOUNT_NOT_ACTIVATED_ERROR
+                Constants.CONFLICT_STRING -> Constants.USERNAME_OR_EMAIL_ALREADY_EXISTS_ERROR
+                else -> error
+            }
+            showErrorMessage(errorMessage)
+            viewModel.handleEvent(LoginContract.LoginEvent.ErrorDisplayed)
+        }
+    }
+
 
     private fun clearInputFields() {
         with(binding) {

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bus_api_client_xml.R
-import com.example.bus_api_client_xml.common.Constants
 import com.example.bus_api_client_xml.databinding.StopViewBinding
 import com.example.bus_api_client_xml.domain.model.BusStop
 
