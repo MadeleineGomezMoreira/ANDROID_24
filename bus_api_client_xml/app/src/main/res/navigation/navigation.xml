@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_drivers_list">
         <action
             android:id="@+id/action_driversListFragment_to_driverDetailFragment"
-            app:destination="@id/driverDetailFragment" />
+            app:destination="@id/driverDetailFragment"
+            app:popUpTo="@id/driversListFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/driverDetailFragment"
@@ -22,7 +24,9 @@
         <argument
             android:name="Id"
             android:defaultValue="hello"
-            app:argType="string" />
+            app:argType="string"
+            app:popUpTo="@id/driverDetailFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_driverDetailFragment_to_busLineDetailFragment"
             app:destination="@id/busLineDetailFragment" />

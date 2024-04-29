@@ -73,10 +73,9 @@
                 android:layout_gravity="center"
                 android:elegantTextHeight="true"
                 android:text="@string/item_name"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
-
-                app:layout_constraintHeight_percent="0.45"
+                app:layout_constraintHeight_percent="0.70"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/rightGuideline"
                 app:layout_constraintStart_toEndOf="@id/midRightGuideline"

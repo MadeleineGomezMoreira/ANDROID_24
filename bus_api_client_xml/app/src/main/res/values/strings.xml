@@ -27,7 +27,7 @@
     <string name="line_id">LINE ID</string>
     <string name="header">HEADER</string>
     <string name="drivers">DRIVERS</string>
-    <string name="driver">DRIVER</string>
+    <string name="driver">Driver</string>
     <string name="title">TITLE</string>
     <string name="my_profile">My Profile</string>
     <string name="all_drivers">All Drivers</string>
@@ -37,4 +37,7 @@
     <string name="email">Email</string>
     <string name="phone_caps">PHONE</string>
     <string name="email_caps">EMAIL</string>
+    <string name="my_profile_slash_driver">MY PROFILE / DRIVER</string>
+    <string name="driver_caps">DRIVER</string>
+    <string name="bus_driving_app">BUS DRIVING APPLICATION</string>
 </resources>

@@ -9,9 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.bus_api_client_xml.common.Constants
 import com.example.bus_api_client_xml.databinding.FragmentDriverDetailBinding
 import com.example.bus_api_client_xml.domain.model.BusDriver
+import com.example.bus_api_client_xml.framework.drivers.DriversListContract
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,8 +40,11 @@ class DriverDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val driverId = args.Id.toInt()
         viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.GetDriver(driverId))
+
+        addLineButtonOnClickListener()
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -50,8 +57,32 @@ class DriverDetailFragment : Fragment() {
                         driver = it.busDriver
                         setScreenDriverData()
                     }
+                    if (it.error != null) {
+                        if(it.error == Constants.FORBIDDEN_STRING) {
+                            Snackbar.make(
+                                requireView(),
+                                Constants.PERMISSION_DENIED_ERROR,
+                                Snackbar.LENGTH_SHORT
+                            ).show()
+                        } else{
+                            showErrorMessage(it.error)
+                        }
+                        viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.ErrorDisplayed)
+                    }
                 }
             }
+        }
+    }
+
+    private fun showErrorMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun addLineButtonOnClickListener() {
+        binding.lineIdButton.setOnClickListener {
+            val action =
+                DriverDetailFragmentDirections.actionDriverDetailFragmentToBusLineDetailFragment(Id = driver.line.id.toString())
+            findNavController().navigate(action)
         }
     }
 

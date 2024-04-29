@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/driverDetailFragment"
-        android:title="@string/my_profile"
+        android:title="@string/driver"
         android:contentDescription="@string/all_drivers_fragment"
         app:showAsAction="ifRoom" />
     <item

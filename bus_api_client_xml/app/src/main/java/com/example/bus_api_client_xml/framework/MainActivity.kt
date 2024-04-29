@@ -58,28 +58,14 @@ class MainActivity : AppCompatActivity() {
             }
 
             //what happens when you click on the bottom navigation items
-            bottomNavigation.setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.driversListFragment -> {
-                        navController.navigate(R.id.driversListFragment)
-                        true
-                    }
-
-                    R.id.driverDetailFragment -> {
-                        navController.navigate(R.id.driverDetailFragment)
-                        true
-                    }
-
-                    else -> false
-                }
-            }
+            bottomNavigation.setupWithNavController(navController)
 
             //each time the destination changes, here is where it is decided what is shown or not
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 when (destination.id) {
                     R.id.driversListFragment -> {
                         topAppBar.visibility = View.VISIBLE
-                        binding.bottomNavigation.visibility = View.VISIBLE
+                        bottomNavigation.visibility = View.VISIBLE
                         navView.isVisible = true
                         topAppBar.menu.findItem(R.id.driverDetailFragment).isVisible = false
                         topAppBar.menu.findItem(R.id.driversListFragment).isVisible = false
@@ -87,14 +73,14 @@ class MainActivity : AppCompatActivity() {
 
                     R.id.driverDetailFragment -> {
                         topAppBar.visibility = View.VISIBLE
-                        binding.bottomNavigation.visibility = View.VISIBLE
+                        bottomNavigation.visibility = View.VISIBLE
                         navView.isVisible = true
                         topAppBar.menu.findItem(R.id.driverDetailFragment).isVisible = false
                         topAppBar.menu.findItem(R.id.driversListFragment).isVisible = true
                     }
 
                     R.id.loginFragment -> {
-                        binding.bottomNavigation.visibility = View.GONE
+                        bottomNavigation.visibility = View.GONE
                         topAppBar.visibility = View.INVISIBLE
                         navView.isVisible = false
                         topAppBar.menu.findItem(R.id.driverDetailFragment).isVisible = false
@@ -114,10 +100,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.driversListFragment -> {
-                //TODO: see if the args are correctly handled
-                //we use action to pass arguments to the destination fragment
-//                val action = ThirdFragmentDirections.actionThirdFragmentToSecondFragment()
-//                navController.navigate(action)
                 menuItem.onNavDestinationSelected(navController)
                 true
             }

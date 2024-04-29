@@ -25,10 +25,12 @@ class DataMappers @Inject constructor() {
 
     fun DriverResponse.toBusDriver(): BusDriver {
         return BusDriver(
+            id = id,
             firstName = firstName,
             lastName = lastName,
             phone = phone,
             line = line.toBusLine()
         )
     }
+
 }

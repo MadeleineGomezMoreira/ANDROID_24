@@ -26,6 +26,7 @@ class DriverDetailViewModel @Inject constructor(
             is DriverDetailContract.DriverDetailEvent.GetDriver -> {
                 getDriver(event.driverId)
             }
+
             DriverDetailContract.DriverDetailEvent.ErrorDisplayed -> _state.value =
                 _state.value.copy(error = null)
         }
@@ -42,15 +43,18 @@ class DriverDetailViewModel @Inject constructor(
                                 error = result.message
                             )
                         }
+
                         is NetworkResult.Loading -> {
                             _state.value = _state.value.copy(
                                 loading = true
                             )
                         }
+
                         is NetworkResult.Success -> {
                             _state.value = _state.value.copy(
                                 loading = false,
-                                busDriver = result.data ?: DriverDetailContract.DriverDetailState().busDriver,
+                                busDriver = result.data
+                                    ?: DriverDetailContract.DriverDetailState().busDriver,
                             )
                         }
                     }

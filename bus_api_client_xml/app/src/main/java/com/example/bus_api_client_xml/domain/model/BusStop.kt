@@ -5,5 +5,5 @@ import android.graphics.Point
 data class BusStop (
     val id: Int,
     val name: String,
-    val location: Point
+    val location: LocationPoint
 )

@@ -12,11 +12,21 @@ object Constants {
     const val NO_STOPS_FOUND_ERROR = "No bus-stops found in the database"
 
     //UI ERROR MESSAGES
-    const val LOGIN_FIELDS_EMPTY_ERROR = "Please fill in all fields (username + password) before logging in"
-    const val REGISTER_FIELDS_EMPTY_ERROR = "Please fill in all fields (username + password + phone + email + first name + last name) before logging in"
+    const val LOGIN_FIELDS_EMPTY_ERROR = "PLEASE FILL IN ALL FIELDS BEFORE LOGGING IN"
+    const val REGISTER_FIELDS_EMPTY_ERROR = "PLEASE FILL IN ALL FIELDS BEFORE TRYING TO REGISTER"
+    const val PERMISSION_DENIED_ERROR = "ACCESS DENIED - ONLY ADMINISTRATORS CAN ACCESS THIS FEATURE"
+    const val ACTIVATION_REQUIRED_ERROR = "PLEASE ACTIVATE YOUR ACCOUNT - CHECK YOUR EMAIL FOR ACTIVATION LINK"
+    const val WRONG_LOGIN_INFO_ERROR = "ACCESS DENIED - WRONG USERNAME OR PASSWORD"
+    const val ACCOUNT_NOT_ACTIVATED_ERROR = "ACCOUNT NOT ACTIVATED - PLEASE ACTIVATE YOUR ACCOUNT BEFORE LOGGING IN"
+    const val USERNAME_OR_EMAIL_ALREADY_EXISTS_ERROR = "USERNAME OR EMAIL ALREADY EXISTS - PLEASE TRY REGISTERING AGAIN WITH DIFFERENT CREDENTIALS"
 
     //UI STRINGS
     const val BLANK_SPACE = " "
+    const val EMPTY_LITERAL_STRING = "empty"
+    const val FORBIDDEN_STRING = "Forbidden"
+    const val UNAUTHORIZED_STRING = "Unauthorized"
+    const val CUSTOM_STRING = "CUSTOM"
+    const val CONFLICT_STRING = "Conflict"
 
     //URLS
     const val BASE_URL = "http://10.0.2.2:8085/Bus_driving_server_payara-1.0-SNAPSHOT/api/"

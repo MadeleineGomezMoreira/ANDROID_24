@@ -1,9 +1,11 @@
 package com.example.bus_api_client_xml.framework.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -50,7 +52,7 @@ class LoginFragment : Fragment() {
                         //show loading indicator on screen
                         binding.progressBar.visibility = View.VISIBLE
                     }
-                    if(!it.loading){
+                    if (!it.loading) {
                         //hide loading indicator on screen
                         binding.progressBar.visibility = View.GONE
                         if (it.userId != null) {
@@ -65,9 +67,53 @@ class LoginFragment : Fragment() {
                     if (it.correctAction) {
                         viewModel.handleEvent(LoginContract.LoginEvent.RetrieveUserId(username))
                     }
+                    if (it.error != null) {
+                        when (it.error) {
+                            Constants.FORBIDDEN_STRING -> {
+                                showErrorMessage(Constants.ACTIVATION_REQUIRED_ERROR)
+                                clearInputFields()
+                            }
+
+                            Constants.UNAUTHORIZED_STRING -> {
+                                showErrorMessage(Constants.WRONG_LOGIN_INFO_ERROR)
+                            }
+
+                            Constants.CUSTOM_STRING -> {
+                                showErrorMessage(Constants.ACCOUNT_NOT_ACTIVATED_ERROR)
+                            }
+
+                            Constants.CONFLICT_STRING -> {
+                                showErrorMessage(Constants.USERNAME_OR_EMAIL_ALREADY_EXISTS_ERROR)
+                            }
+
+                            else -> {
+                                showErrorMessage(it.error)
+                            }
+                        }
+                        viewModel.handleEvent(LoginContract.LoginEvent.ErrorDisplayed)
+                    }
                 }
             }
         }
+    }
+
+    private fun clearInputFields() {
+        with(binding) {
+            textFieldContentUserNameRegister.text?.clear()
+            textFieldContentPasswordRegister.text?.clear()
+            textFieldContentFullName.text?.clear()
+            textFieldContentEmail.text?.clear()
+            textFieldContentPhone.text?.clear()
+        }
+    }
+
+    private fun showErrorMessage(message: String) {
+        //we will hide the keyboard before displaying the error message
+        val inputMethodManager =
+            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
+
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun setButtonOnClickListeners() {
@@ -84,11 +130,7 @@ class LoginFragment : Fragment() {
                         )
                     )
                 } else {
-                    Snackbar.make(
-                        requireView(),
-                        Constants.LOGIN_FIELDS_EMPTY_ERROR,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    showErrorMessage(Constants.LOGIN_FIELDS_EMPTY_ERROR)
                 }
             }
 
@@ -97,14 +139,14 @@ class LoginFragment : Fragment() {
                 val user = textFieldContentUserNameRegister.text.toString()
                 val pass = textFieldContentPasswordRegister.text.toString()
                 val fullName = textFieldContentFullName.text.toString()
-                val firstName = fullName.split(Constants.BLANK_SPACE)[0]
-                val lastName = fullName.split(Constants.BLANK_SPACE)[1]
                 val email = textFieldContentEmail.text.toString()
                 val phone = textFieldContentPhone.text.toString()
-                if (user.isNotEmpty() && pass.isNotEmpty() && fullName.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty() && fullName.contains(
+                if (user.isNotEmpty() && pass.isNotEmpty() && fullName.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty() && fullName.isNotEmpty() && fullName.contains(
                         Constants.BLANK_SPACE
                     )
                 ) {
+                    val firstName = fullName.split(Constants.BLANK_SPACE)[0]
+                    val lastName = fullName.split(Constants.BLANK_SPACE)[1]
                     viewModel.handleEvent(
                         LoginContract.LoginEvent.RegisterUser(
                             RegisterDTO(
@@ -118,11 +160,7 @@ class LoginFragment : Fragment() {
                         )
                     )
                 } else {
-                    Snackbar.make(
-                        requireView(),
-                        Constants.REGISTER_FIELDS_EMPTY_ERROR,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    showErrorMessage(Constants.REGISTER_FIELDS_EMPTY_ERROR)
                 }
             }
         }
