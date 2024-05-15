@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/driversListFragment"
+        android:name="com.example.bus_api_client_xml.framework.drivers.DriversListFragment"
+        android:label="fragment_drivers_list"
+        tools:layout="@layout/fragment_drivers_list">
+        <action
+            android:id="@+id/action_driversListFragment_to_driverDetailFragment"
+            app:destination="@id/driverDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverDetailFragment"
+        android:name="com.example.bus_api_client_xml.framework.driver.DriverDetailFragment"
+        android:label="fragment_driver_detail"
+        tools:layout="@layout/fragment_driver_detail">
+        <argument
+            android:name="Id"
+            android:defaultValue="hello"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_driverDetailFragment_to_busLineDetailFragment"
+            app:destination="@id/busLineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/busLineDetailFragment"
+        android:name="com.example.bus_api_client_xml.framework.line.BusLineDetailFragment"
+        android:label="fragment_bus_line_detail"
+        tools:layout="@layout/fragment_bus_line_detail">
+        <argument
+            android:name="Id"
+            android:defaultValue="hello"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_busLineDetailFragment_to_stopDetailFragment"
+            app:destination="@id/stopDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stopDetailFragment"
+        android:name="com.example.bus_api_client_xml.framework.stop.StopDetailFragment"
+        android:label="fragment_stop_detail"
+        tools:layout="@layout/fragment_stop_detail">
+        <argument
+            android:name="Id"
+            android:defaultValue="hello"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_stopDetailFragment_to_lineDetailFragment"
+            app:destination="@id/busLineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bus_api_client_xml.framework.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_driversListFragment"
+            app:destination="@id/driversListFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_driverDetailFragment"
+            app:destination="@id/driverDetailFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!--This action ensures that whenever the user wants to log off they can do so clearing the stack-->
+
+    <action
+        android:id="@+id/action_logOff"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_to_driver_detail"
+        app:destination="@id/driverDetailFragment">
+    </action>
+
+</navigation>

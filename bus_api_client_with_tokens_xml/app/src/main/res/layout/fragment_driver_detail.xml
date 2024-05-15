@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".framework.driver.DriverDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <TextView
+            android:id="@+id/firstNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/first_name_caps"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/guideline1"
+            app:layout_constraintBottom_toTopOf="@id/firstNameContentTextView"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/firstNameContentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/first_name"
+            android:textSize="23sp"
+            app:layout_constraintTop_toBottomOf="@id/firstNameTextView"
+            app:layout_constraintBottom_toTopOf="@id/lastNameTextView"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/lastNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/last_name_caps"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/firstNameContentTextView"
+            app:layout_constraintBottom_toTopOf="@id/lastNameContentTextView"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/lastNameContentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/last_name"
+            android:textSize="23sp"
+            app:layout_constraintTop_toBottomOf="@id/lastNameTextView"
+            app:layout_constraintBottom_toTopOf="@id/phoneTextView"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/phone_caps"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/lastNameContentTextView"
+            app:layout_constraintBottom_toTopOf="@id/phoneContentTextView"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/phoneContentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:text="@string/phone_number"
+            android:textSize="23sp"
+            app:layout_constraintTop_toBottomOf="@id/phoneTextView"
+            app:layout_constraintBottom_toTopOf="@id/guideLine2"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <TextView
+            android:id="@+id/assignedLineTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:elegantTextHeight="true"
+            android:text="@string/assigned_line"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/guideLine2"
+            app:layout_constraintBottom_toTopOf="@id/guideLine3"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline" />
+
+        <Button
+            android:id="@+id/lineIdButton"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/line_id"
+            android:textSize="28sp"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintBottom_toTopOf="@id/guideLine4"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+            app:layout_constraintStart_toEndOf="@id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@id/guideLine3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
