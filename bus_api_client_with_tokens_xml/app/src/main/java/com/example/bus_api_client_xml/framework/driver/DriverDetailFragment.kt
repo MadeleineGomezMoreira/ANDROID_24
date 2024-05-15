@@ -47,8 +47,8 @@ class DriverDetailFragment : Fragment() {
             requireActivity().getSharedPreferences(Constants.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
 
         val loginDriverId = args.Id
-        if(loginDriverId == "hello"){
-            val bottomNavDriverId = sharedPreferences.getString(Constants.USER_ID, "")
+        if(loginDriverId == Constants.HELLO_STRING){
+            val bottomNavDriverId = sharedPreferences.getString(Constants.USER_ID, Constants.EMPTY_STRING)
             viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.GetDriver(bottomNavDriverId!!.toInt()))
         } else{
             viewModel.handleEvent(DriverDetailContract.DriverDetailEvent.GetDriver(loginDriverId.toInt()))

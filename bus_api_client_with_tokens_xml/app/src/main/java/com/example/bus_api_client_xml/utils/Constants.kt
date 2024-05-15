@@ -44,6 +44,7 @@ object Constants {
     const val CONFLICT_STRING = "Conflict"
     const val USER_ID = "userId"
     const val SHARED_PREFERENCES_NAME = "BusApiClientSP"
+    const val HELLO_STRING = "hello"
 
     //REQUEST PATHS
     const val LOGIN_PATH = "login"
