@@ -1,14 +1,14 @@
-package com.example.bus_api_client_xml.data.sources.remote.di
+package com.example.busapiclienttokenscompose.data.remote.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.bus_api_client_xml.BuildConfig
-import com.example.bus_api_client_xml.data.sources.remote.services.AuthService
-import com.example.bus_api_client_xml.data.sources.remote.services.DriverService
-import com.example.bus_api_client_xml.data.sources.remote.services.LineService
-import com.example.bus_api_client_xml.data.sources.remote.services.StopService
+import com.example.busapiclienttokenscompose.BuildConfig
+import com.example.busapiclienttokenscompose.data.remote.services.AuthService
+import com.example.busapiclienttokenscompose.data.remote.services.DriverService
+import com.example.busapiclienttokenscompose.data.remote.services.LineService
+import com.example.busapiclienttokenscompose.data.remote.services.StopService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
